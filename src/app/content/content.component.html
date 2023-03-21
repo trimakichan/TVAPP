@@ -1,0 +1,38 @@
+
+<div *ngIf="tvDataResult.title === ''">
+    No data available
+</div>
+
+<div class="row p-5 m-3 rowStyle">
+    
+    <div class="col">
+        <div *ngIf="tvDataResult.title !== ''">
+            <h2>{{tvDataResult.title}}</h2>
+          <p>Summary: <br>
+            <p>{{tvDataResult.description}}</p>  
+            <p>Genre: {{tvDataResult.genre}}</p>
+            <p>Rating: {{tvDataResult.rating}}</p>
+        </div>
+        </div>
+        <div class="col-4 imageDiv" > 
+            <img class="image" [src]="tvDataResult.image" alt="">
+        </div>
+</div>
+
+
+
+
+
+
+    <!-- <div *ngFor="let t of tvDataResult"> -->
+
+    <!-- </div> -->
+    <!-- <ng-container *ngFor="let t of tvDataResult"  >
+        {{t.title}}
+        {{t.description}} -->
+        <!-- {{tvDataResult.genre}} -->
+        
+        <!-- <img src="tvDataResult.image" > -->
+    <!-- </ng-container> -->
+
+

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TvshowService } from '../service/tvshow.service';
 
 
@@ -7,10 +7,25 @@ import { TvshowService } from '../service/tvshow.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
+
+
 export class HomeComponent implements OnInit {
+
+  @ViewChild('widgetsContent') widgetsContent: ElementRef | any;
+
+  scrollLeft(){
+    this.widgetsContent.nativeElement.scrollLeft -= 500;
+  }
+
+  scrollRight(){
+    this.widgetsContent.nativeElement.scrollLeft += 500;
+  }
+
   constructor(private service:TvshowService){}
+
+
   todayTVResults:any = []
-  topRated: any = []
+  trendingMovieResult:any = []
   date:any = this.formatDate(new Date())
   
 
@@ -28,12 +43,10 @@ export class HomeComponent implements OnInit {
     );
   } 
 
- 
-
 
   ngOnInit(): void {
     this.todayShowData();
-    // this.topRatedData();
+    this.trendingData();
   }
 
   todayShowData() {
@@ -45,10 +58,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  // topRatedData() {
-  //   this.service.topRatedData().subscribe((result) => {
-  //     console.log('Home top rated data:', result)
-  //   })
+  trendingData() {
+    this.service.trendingMovieApiData().subscribe((result) => {
+     console.log('trendingdata#', result)
+     this.trendingMovieResult = result.results;
+    })
+  }
 
   }
 

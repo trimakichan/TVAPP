@@ -1,79 +1,40 @@
+<div class="container-fluid homeBox">
+  <h5 class="text-white titleText">TV Shows Airing Today</h5>
 
+  <div class="row">
+    <div #widgetsContent class="todayShowContainer">
+      <ng-container *ngFor="let today of todayTVResults; let i = index">
+        <img
+          [src]="today.show.image.original"
+          alt="TV Image"
+          class="todayImg largeposter"
+          [routerLink]="['/tv', today.show.id]"
+        />
 
-<div class="container-fluid p-3">
-    <div class="todayShowContainer" >
-      <!-- <div  > -->
-   
-        <div  *ngFor ="let today of todayTVResults;let i=index">
-           
-          <img
-            [src]="today.show.image.original"
-            alt="TV Image"
-            class="img"
-            [routerLink]="['/tv', today.show.id]"
-           
-          />
-     
-          <!-- <h4 class="text-center text-light">{{today.show.name }}</h4> -->
-        </div>
-   
-      <!-- </div> -->
- 
-   
-    </div>
-   
-  </div>
-
-
-<!-- banner start -->
-<!-- 
-<div style="color:aliceblue">Today's Show</div>
-<div class="container-fluid homeToday mx-auto">
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active"
-          data-bs-interval="10000"
-          *ngFor ="let today of todayTVResults;let i=index"
-          [ngClass]="{active:i===1}"
-          >
-            <img [src]="today.show.image.original"
-                 class="w-80 rounded mx-auto d-block" 
-                 [alt]="today.show.name"
-                 [routerLink]="['/search', today.show.id]"
-                 >
-            <div class="carousel-caption d-none d-md-block">
-              <h2>{{today.show.name}}</h2>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-</div> -->
-
-<!-- banner end -->
-
-<div class="contain mt-3 p-4">
-
-    <!-- trending movie -->
-<div class="row">
-    <h5 class="text-white">Trending Movie</h5>
-    <div class="rowposter  mt-3 p-2">
-      <ng-container *ngFor="let t of topRated">
-        <img src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}" ;
-        class="rowimg largeposter" 
-        alt="..."
-        [routerLink]="['/movie', t.id]">
+        <!-- <h4 class="text-center text-light">{{today.show.name }}</h4> -->
       </ng-container>
-     
     </div>
+
+    <div class="arrow">
+      <i class="bi bi-arrow-left-circle pointer" (click)="scrollLeft()"></i>
+      <i class="bi bi-arrow-right-circle pointer" (click)="scrollRight()"></i>
+    </div>
+  </div>
 </div>
 
-
+<div class="contain p-2">
+  <!-- trending movie -->
+  <div class="row">
+    <h5 class="text-white">Trending Movie</h5>
+    <div class="trendingposter mt-3 p-2">
+      <ng-container *ngFor="let t of trendingMovieResult">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+          class="trendingImg smallposter"
+          alt="..."
+          [routerLink]="['/tv', t.id]"
+        />
+      </ng-container>
+    </div>
+  </div>
 </div>

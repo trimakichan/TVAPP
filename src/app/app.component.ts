@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {TvshowService} from './service/tvshow.service';
 import { ITvApp } from './interface/itv-app';
 
@@ -9,6 +9,7 @@ import { ITvApp } from './interface/itv-app';
 })
 export class AppComponent {
   title = 'TV-Search';
+  navbg: any;
   
   searchResult: any = []
   // searchResult: ITvApp = {
@@ -26,6 +27,18 @@ export class AppComponent {
      console.log(data) 
       this.searchResult = data})
   }
+
+    // The background of navbar turns black if you start scrolling down so you can see the navbar more easily. 
+    @HostListener('document:scroll') scrollover() {
+
+      if ((document.body.scrollTop > 0) || document.documentElement.scrollTop > 0) {
+        this.navbg = {
+          'background-color': '#000000'
+        }
+      } else {
+        this.navbg = {}
+  }
+    }
 
 
 }

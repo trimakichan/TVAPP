@@ -1,0 +1,9 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(105, 94, 94);
+    opacity: 1; /* Firefox */
+  }
+
+  .color {
+    background-color: rgb(175, 174, 174);
+    border: none ;
+  }

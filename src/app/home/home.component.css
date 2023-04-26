@@ -5,7 +5,7 @@
     background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
 } */
 
-.carousel-inner {
+/* .carousel-inner {
     height: 700px;
 }
 
@@ -22,63 +22,99 @@
 
 .carousel-caption p {
     color: #ffffff;
+} */
+
+.homeBox {
+    padding-top: 50px;
+}
+
+  .titleText {
+     font-weight: bold;
+     font-size: 1.3rem;
+    
+  }
+  
+  .todayShowContainer {
+    /* height: 600px; */
+
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* move the images with <- -> key  */
+.todayShowContainer::-webkit-scrollbar
+{
+    display: none;
+
 }
 
 
 
-.rowimg {
-    max-height: 200px;
-    object-fit: contain;
+.todayImg {
+    max-height: 500px;
     width: 100%;
+    object-fit: contain;
     box-sizing: content-box;
     transition: transform 450ms;
-    margin-right: 7px;
+
 }
 
-.rowimg:hover 
+.todayImg:hover, .trendingImg:hover
 {
-    transform: scale(1.09);
+    transform: scale(1.06);
     cursor: pointer;
 }
 
 .largeposter 
 {
-    max-height: 300px;
+    max-height: 600px;
 }
 
-/* move the images with <- -> key  */
-.rowposter::-webkit-scrollbar
-{
-    display: none;
 
-}
- 
-
-  .title {
-    font-family: 'Delicious Handrawn', Arial, Helvetica, sans-serif;
-     color: #fd5907;
-     font-weight: bold;
-     font-size: 3rem;
-  }
-  
-  .todayShowContainer {
-    height: 600px;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-
-  .rowposter {
+.trendingposter, .rowposter {
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
 }
 
-  
-.img {
+
+.trendingImg {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    box-sizing: content-box;
+    transition: transform 450ms;
+    margin-right: 7px;
+
+}
+.smallposter {
+    max-height: 300px;
+}
+
+
+
+/* .img {
     width: 450px;
     height: 100%;
     object-fit:cover;
 
+  } */
+
+
+  .pointer {
+    color: white;
   }
 
+  /* Scroll Arrow */
+.arrow {
+    text-align: center;
+    
+}
+
+.arrow i {
+    margin-right: 20px;
+    font-size: 2rem;
+    color: rgb(206, 206, 46);
+}

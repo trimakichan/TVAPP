@@ -1,20 +1,29 @@
 
-<div class="container-fluid p-3 boxForRow">
+
+<div class="container-fluid p-3">
     <div class="todayShowContainer" >
-      <div *ngFor ="let today of todayTVResults;let i=index" >
-        <div class="todayImage" >
+      <!-- <div  > -->
+   
+        <div  *ngFor ="let today of todayTVResults;let i=index">
+           
           <img
             [src]="today.show.image.original"
             alt="TV Image"
-            class=""
+            class="img"
             [routerLink]="['/tv', today.show.id]"
            
           />
+     
           <!-- <h4 class="text-center text-light">{{today.show.name }}</h4> -->
         </div>
-      </div>
+   
+      <!-- </div> -->
+ 
+   
     </div>
+   
   </div>
+
 
 <!-- banner start -->
 <!-- 

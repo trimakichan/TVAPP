@@ -12,6 +12,8 @@ import {MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

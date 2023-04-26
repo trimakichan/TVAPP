@@ -1,38 +1,29 @@
+<!-- <div *ngIf="tvDataResult.show.name === ''">No data available</div> -->
 
-<div *ngIf="tvDataResult.title === ''">
-    No data available
+<div class="row rowStyle m-5"  *ngFor="let d of tvDataResult" >
+    <ng-container *ngIf="d.show.id !== ''">
+    <div class="col-4 imageDiv">
+        <img class="image" [src]="d.show.image.original" alt="" />
+      </div>
+  <div class="col-8">
+    <div class="p-5 text-content">
+      <h2 style="color: red">{{ d.show.name }}</h2>
+      <p><strong>Summary:</strong><br /></p>
+      <p [innerHTML]="d.show.summary"></p>
+      <p *ngIf="d.show.genres.length !== 0 ">Genre: {{ d.show.genres }}</p>
+      <p *ngIf="d.show.rating.average" ><mat-icon style="color: yellow">star_rate</mat-icon>Rating: {{d.show.rating.average}} / 10</p>
+    </div>
+  </div>
+</ng-container>
 </div>
 
-<div class="row p-5 m-3 rowStyle">
-    
-    <div class="col">
-        <div *ngIf="tvDataResult.title !== ''">
-            <h2>{{tvDataResult.title}}</h2>
-          <p>Summary: <br>
-            <p>{{tvDataResult.description}}</p>  
-            <p>Genre: {{tvDataResult.genre}}</p>
-            <p>Rating: {{tvDataResult.rating}}</p>
-        </div>
-        </div>
-        <div class="col-4 imageDiv" > 
-            <img class="image" [src]="tvDataResult.image" alt="">
-        </div>
-</div>
+<!-- <div *ngFor="let t of tvDataResult"> -->
 
-
-
-
-
-
-    <!-- <div *ngFor="let t of tvDataResult"> -->
-
-    <!-- </div> -->
-    <!-- <ng-container *ngFor="let t of tvDataResult"  >
+<!-- </div> -->
+<!-- <ng-container *ngFor="let t of tvDataResult"  >
         {{t.title}}
         {{t.description}} -->
-        <!-- {{tvDataResult.genre}} -->
-        
-        <!-- <img src="tvDataResult.image" > -->
-    <!-- </ng-container> -->
+<!-- {{tvDataResult.genre}} -->
 
-
+<!-- <img src="tvDataResult.image" > -->
+<!-- </ng-container> -->

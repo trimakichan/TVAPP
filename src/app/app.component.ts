@@ -8,19 +8,23 @@ import { ITvApp } from './interface/itv-app';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'twshow-practice';
-  searchResult: ITvApp = {
-    title: '',
-    image: '',
-    description: '',
-    genre: [],
-    rating: 0
-  }
+  title = 'TV-Search';
+  
+  searchResult: any = []
+  // searchResult: ITvApp = {
+  //   title: '',
+  //   image: '',
+  //   description: '',
+  //   genre: [],
+  //   rating: 0
+  // }
 
   constructor(private TvshowService: TvshowService) {}
 
   doSearch(searchValue: string) {
-    this.TvshowService.getMovieData(searchValue).subscribe(data => this.searchResult = data)
+    this.TvshowService.getMovieData(searchValue).subscribe(data => {
+     console.log(data) 
+      this.searchResult = data})
   }
 
 

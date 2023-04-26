@@ -10,15 +10,16 @@ import { ITvApp } from '../interface/itv-app';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
-  @Input() tvDataResult: ITvApp;
+  @Input() tvDataResult: any;
+  
 
   constructor() {
-    this.tvDataResult = {
-        title: '',
-        image: '',
-        description: '',
-        genre: [],
-        rating: 0
-    }
+  //   this.tvDataResult = {
+  //       title: '',
+  //       image: '',
+  //       description: '',
+  //       genre: [],
+  //       rating: 0
+  //   }
   }
 }

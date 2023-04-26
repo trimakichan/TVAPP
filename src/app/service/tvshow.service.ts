@@ -13,51 +13,37 @@ import { ITvAppData } from '../interface/itv-app-data';
 })
 export class TvshowService {
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient) {
+  }
 
-  getMovieData(input: string | number){
-    console.log(input);
-    return this.HttpClient.get<ITvAppData>(`https://api.tvmaze.com/singlesearch/shows?q=${input}`)
-    .pipe(map((data):ITvApp => (console.log(data, '#ApiData'),
-      
-      this.transformtoICurrentTV(data)
-     )))
+  getMovieData(input: string | number):Observable<any> {
+    console.log('ID in Service:',input);
+    return this.HttpClient.get(`https://api.tvmaze.com/search/shows?q=${input}`)    
+      // this.transformtoICurrentTV(data)
 
   }
+
+  todayData(date:any):Observable<any> { 
+    console.log('service date:', date)
+    return this.HttpClient.get(`https://api.tvmaze.com/schedule?country=US&date=${date}`)
+  }
+  // 2020-05-29
+  topRatedData() {
+
+  }
+
   
-  private transformtoICurrentTV(data: ITvAppData):ITvApp {
-    return {
-    title: data.name,
-    image: data.image.medium,
-    description: data.summary,
-    genre: data.genres,
-    rating: data.rating.average
-  }
-    //  this.arr.push(data)
-    // //  console.log(this.arr)
-    //  for(let i = 0; i < this.arr.length; i++) {
-    //     title: this.arr[i].name
-    //     description: this.arr[i].summary
-    //     console.log(this.arr[i],'#filtered')
-    //   }
-    //   return this.arr
+  // private transformtoICurrentTV(data: ITvAppData):ITvApp {
+  //   return {
+  //   title: data.name,
+  //   image: data.image.medium,
+  //   description: data.summary,
+  //   genre: data.genres,
+  //   rating: data.rating.average
+  // }
 
-      }
+  //     }
      }
-    //  console.log(this.arr, 'arr#')
-    //  for(let i: any; i < this.arr.length; i++) {
-    //   console.log(i)
-    // return {
-    //   title: data.name,
-    //   // image: data.image.medium,
-    //   description: data.summary,
-    //   // genre: data.genres,
-    //   // rating: data.show.average.rating 
-     
-    //  }  
-  
-//   }
-// }
 
 
   

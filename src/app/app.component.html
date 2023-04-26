@@ -1,21 +1,18 @@
 <nav class="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink=""><i class="bi bi-film"></i><span class="showtime"> SHOWTIME</span></a>
+        
+        
+        
         <div class="d-flex">
             <app-search class="" (searchEvent)="doSearch($event)"></app-search>
         </div>
-      <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
     </div>
   </nav>
 
 
-  
-<!-- navbar --> 
 
-<div class="container mt-5">
+<!-- <div class="container mt-5">
     
   <div>
   <app-content [tvDataResult]="searchResult"></app-content>
@@ -23,7 +20,7 @@
 
 
 
-</div>
+</div> -->
 
 
 <router-outlet></router-outlet>

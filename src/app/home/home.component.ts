@@ -11,14 +11,14 @@ import { TvshowService } from '../service/tvshow.service';
 
 export class HomeComponent implements OnInit {
 
-  @ViewChild('widgetsContent') widgetsContent: ElementRef | any;
+  @ViewChild('widgetsTV') widgetsTV: ElementRef | any;
 
   scrollLeft(){
-    this.widgetsContent.nativeElement.scrollLeft -= 500;
+    this.widgetsTV.nativeElement.scrollLeft -= 500;
   }
 
   scrollRight(){
-    this.widgetsContent.nativeElement.scrollLeft += 500;
+    this.widgetsTV.nativeElement.scrollLeft += 500;
   }
 
   constructor(private service:TvshowService){}
@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
 
   todayTVResults:any = []
   trendingMovieResult:any = []
+  topRatedTVResult: any = []
+
   date:any = this.formatDate(new Date())
   
 
@@ -47,6 +49,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.todayShowData();
     this.trendingData();
+    this.topRatedTV();
   }
 
   todayShowData() {
@@ -62,6 +65,15 @@ export class HomeComponent implements OnInit {
     this.service.trendingMovieApiData().subscribe((result) => {
      console.log('trendingdata#', result)
      this.trendingMovieResult = result.results;
+     console.log('trending:', this.trendingMovieResult)
+    })
+  }
+
+  topRatedTV() {
+    this.service.topRatedTvApiData().subscribe((result) => {
+     console.log('topRated TV Shows:', result)
+     this.topRatedTVResult = result.results;
+    
     })
   }
 

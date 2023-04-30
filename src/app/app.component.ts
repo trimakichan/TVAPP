@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import {TvshowService} from './service/tvshow.service';
-import { ITvApp } from './interface/itv-app';
+
 
 @Component({
   selector: 'app-root',
@@ -12,13 +12,8 @@ export class AppComponent {
   navbg: any;
   
   searchResult: any = []
-  // searchResult: ITvApp = {
-  //   title: '',
-  //   image: '',
-  //   description: '',
-  //   genre: [],
-  //   rating: 0
-  // }
+
+
 
   constructor(private TvshowService: TvshowService) {}
 

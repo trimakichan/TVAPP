@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-// import { TvshowService } from '../service/tvshow.service';
-import { ITvApp } from '../interface/itv-app';
+
+
 
 
 
@@ -9,17 +9,13 @@ import { ITvApp } from '../interface/itv-app';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent {
+export class ContentComponent{
   @Input() tvDataResult: any;
+
   
 
-  constructor() {
-  //   this.tvDataResult = {
-  //       title: '',
-  //       image: '',
-  //       description: '',
-  //       genre: [],
-  //       rating: 0
-  //   }
-  }
+
+
+
+
 }

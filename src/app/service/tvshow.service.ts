@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import {map} from 'rxjs';
 import { ITvApp } from '../interface/itv-app';
 import { ITvAppData } from '../interface/itv-app-data';
@@ -17,7 +18,6 @@ export class TvshowService {
   }
 
   baseurl = "https://api.themoviedb.org/3";
-  apikey = "08cc33bd5ae3a747598ce2ad84376e66";
 
   getMovieData(input: string | number):Observable<any> {
     console.log('ID in Service:',input);
@@ -32,19 +32,15 @@ export class TvshowService {
   }
 
   trendingMovieApiData(): Observable<any> {
-    return this.HttpClient.get(`${this.baseurl}/trending/movie/day?api_key=${this.apikey}`);
+    return this.HttpClient.get(`${this.baseurl}/trending/movie/day?api_key=${environment.appId}`);
+  }
+
+
+  topRatedTvApiData(): Observable<any> {
+    return this.HttpClient.get(`${this.baseurl}/tv/top_rated?api_key=${environment.appId}&language=en-US&page=1`);
+  
   }
   
-  // private transformtoICurrentTV(data: ITvAppData):ITvApp {
-  //   return {
-  //   title: data.name,
-  //   image: data.image.medium,
-  //   description: data.summary,
-  //   genre: data.genres,
-  //   rating: data.rating.average
-  // }
-
-  //     }
      }
 
 

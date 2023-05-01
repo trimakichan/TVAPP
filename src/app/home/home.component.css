@@ -26,16 +26,16 @@
   display: none;
 }
 
-.todayImg {
+/* .todayImg {
   max-height: 500px;
   width: 100%;
   object-fit: contain;
   box-sizing: content-box;
   transition: transform 450ms;
-}
+} */
 
-.todayImg:hover,
-.trendingImg:hover {
+.trendingImg:hover,
+.movie-image:hover {
   transform: scale(1.06);
   cursor: pointer;
 }
@@ -109,6 +109,7 @@
  height: 100%;
  object-fit: contain;  
  cursor: pointer;
+ transition: transform 450ms;
 }
 
 .backdrop-content {

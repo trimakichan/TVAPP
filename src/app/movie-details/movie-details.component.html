@@ -17,21 +17,22 @@
       />
       <h3>{{ getMovieDetails.title }}</h3>
     </div>
-    <!-- <div class="col col-sm-12 m-5">
+   <div class="col col-sm-12 m-5">
         <h3>{{ getMovieDetails.title }}</h3>
       </div> -->
 <!-- </div>
 </div> -->
--->
 
-<div class="container-fluid container">
-  <img
+<div class="container-fluid container mx-auto">
+  <!-- <img
     src="https://image.tmdb.org/t/p/original/{{
-      getMovieDetails.backdrop_path}} "
+      getMovieDetails.backdrop_path
+    }} "
     class="backdrop-image"
-  />
-  <div class="row content-box mt-5">
-    <div class="col col-lg-4 p-5 mt-5" imgBox>
+  /> -->
+
+  <div class="row mt-5">
+    <div class="col col-lg-5 p-5 mt-5" imgBox>
       <img
         src="https://image.tmdb.org/t/p/original/{{
           getMovieDetails.poster_path
@@ -39,13 +40,47 @@
         class="posterImg"
       />
     </div>
-    <div class="col col-lg-5 pt-5 mt-5 text-white textBox">
-      <h3 class="mb-3">{{ getMovieDetails.title }}</h3>
-      <h5 class="mb-3">{{getMovieDetails.tagline}}</h5>
-       <p class= "">{{ getMovieDetails.overview }}</p>
-       {{getMovieDetails.homepage}}
-       <a [href]="getMovieDetails.homepage" class="btn btn-danger p-1" target="_blank">
-        Watch Trailer</a>
+    <div class="col col-lg-7 pt-5 text-white textBox">
+      <div class="button">
+        <button type="button" class="btn btn-outline-danger p-2" routerLink="">
+          Go Back
+        </button>
+      </div>
+      <h3 class="mb-3">
+        {{ getMovieDetails.title }}{{ getMovieDetails.name }}
+
+        <a
+          [href]="getMovieDetails.homepage"
+          class="btn btn-danger p-1 align-top"
+          target="_blank"
+        >
+          Website</a
+        >
+      </h3>
+
+      <h5 class="mb-3">{{ getMovieDetails.tagline }}</h5>
+
+      <div class="genres">
+        <h5>Genre:&nbsp;</h5>
+       <h5 *ngFor="let g of getMovieDetails.genres; let i = index">
+          <p>{{ g.name }} &nbsp;</p>
+        </h5>
+      </div>
+
+      <h5><i class="bi bi-film" style="color:#e50914"></i>&nbsp;Rating:&nbsp;{{ getMovieDetails.vote_average | number: "1.0-1" }}</h5>
+
+      <p class="mt-4 mb-5">{{ getMovieDetails.overview }}</p>
+
+      <youtube-player
+        *ngIf="trailerID"
+        videoId="{{ trailerID }}"
+        suggestedQuality="highres"
+        [height]="400"
+        [width]="600"
+        [startSeconds]="4"
+        [endSeconds]="8"
+      >
+      </youtube-player>
     </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid homeBox">
   <h3 style="color:aliceblue; margin: 8px">Trending Movies</h3>
   <div class="contain-fluid">
@@ -12,7 +14,7 @@
           <img
             src="https://image.tmdb.org/t/p/original/{{ trend.backdrop_path }}"
             class="d-block w-100 back-image"
-            alt="..."
+            alt= {{trend.name}}
           />
           <div class="row backdrop-text">
             <div class="col-1"></div>
@@ -21,7 +23,7 @@
               src="https://image.tmdb.org/t/p/original/{{ trend.poster_path }}"
               class="d-block w-100 movie-image"
               alt= {{trend.title}}
-              [routerLink]="['/tv', trend.id]"
+              [routerLink]="['/movie', trend.id]"
             />
             </div>
             <div class="col col-box backdrop-content">
@@ -55,28 +57,6 @@
       </button>
     </div>
   </div>
-
-  <!--  -->
-  <!-- <div class="container-fluid top-container">
-    <ng-container class="" *ngFor="let data of trendingMovieResult">
-      <div class="row">
-        <div class="col">
-          <div class="imgDiv">
-            <img
-              src="https://image.tmdb.org/t/p/original/{{ data.backdrop_path }}"
-              class="backdrop-image"
-            />
-            <div class="row backdrop-text">
-              <div class="col">
-                testtest
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-  </div> -->
-
 
 <!-- trending movie -->
 

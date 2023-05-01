@@ -47,19 +47,19 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.todayShowData();
+    // this.todayShowData();
     this.trendingData();
     this.topRatedTV();
   }
 
-  todayShowData() {
-    this.service.todayData(this.date).subscribe((result) => {
-      console.log('todayTVResults:', result)
-      this.todayTVResults = result
-      console.log(result)
+  // todayShowData() {
+  //   this.service.todayData(this.date).subscribe((result) => {
+  //     console.log('todayTVResults:', result)
+  //     this.todayTVResults = result
+  //     console.log(result)
     
-    })
-  }
+  //   })
+  // }
 
   trendingData() {
     this.service.trendingMovieApiData().subscribe((result) => {

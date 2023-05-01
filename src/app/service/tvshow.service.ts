@@ -21,15 +21,14 @@ export class TvshowService {
 
   getMovieData(input: string | number):Observable<any> {
     console.log('ID in Service:',input);
-    return this.HttpClient.get(`${this.baseurl}/search/movie?api_key=${environment.appId}&query=${input}`)    
-      // this.transformtoICurrentTV(data)
+    return this.HttpClient.get(`${this.baseurl}/search/multi?api_key=${environment.appId}&query=${input}&include_adult=false`)   
 
   }
 
-  todayData(date:any):Observable<any> { 
-    console.log('service date:', date)
-    return this.HttpClient.get(`https://api.tvmaze.com/schedule?country=US&date=${date}`)
-  }
+  // todayData(date:any):Observable<any> { 
+  //   console.log('service date:', date)
+  //   return this.HttpClient.get(`https://api.tvmaze.com/schedule?country=US&date=${date}`)
+  // }
 
   trendingMovieApiData(): Observable<any> {
     return this.HttpClient.get(`${this.baseurl}/trending/movie/day?api_key=${environment.appId}`);
@@ -42,8 +41,13 @@ export class TvshowService {
   }
 
   getMovieApiData(id: any):Observable<any> {
-    return this.HttpClient.get(`${this.baseurl}/movie/${id}?api_key=${environment.appId}`)
+    return this.HttpClient.get(`${this.baseurl}/movie/${id}?api_key=${environment.appId}&append_to_response=videos`)
   } 
+
+  getTvApiData(id: any):Observable<any> {
+    return this.HttpClient.get(`${this.baseurl}/tv/${id}?api_key=${environment.appId}&append_to_response=videos`)
+  } 
+
   
      }
 

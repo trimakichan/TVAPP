@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 
@@ -30,9 +31,11 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
+    YouTubePlayerModule
 
 
   ],
+  // exports: [VideoComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

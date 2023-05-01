@@ -1,40 +1,54 @@
-
-<div class="container-fluid searchDiv">
-<app-search (searchEvent)="doSearch($event)"  />
+<div class="container-fluid searchDiv mx-auto">
+  <h2 class="text-white text-center mb-3">Search TVs and Movies!</h2>
+  <app-search (searchEvent)="doSearch($event)" />
 </div>
 
-
-<!-- <div *ngIf="tvDataResult.show.name === ''">No data available</div> -->
-<div class="container">
- 
-<div class="row rowStyle m-5"  *ngFor="let d of MovieDataResult" >
-    <ng-container *ngIf="d.id !== ''">
-    <div class="col-4 imageDiv">
-        <img class="image" 
-        src="https://image.tmdb.org/t/p/original/{{ d.poster_path }}"
-        alt="" />
+<div class="container-fluid mt-5">
+  <div class="row ">
+    <div
+      class="col mb-4 m-2"
+      *ngFor="let d of MovieDataResult"
+    >
+      <div class="card cardSize mx-auto" >
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ d.poster_path }}"
+          alt="{{d.title}}"
+          class="card-img-top"
+          style="height: 50%;"
+          *ngIf="d.poster_path"
+          
+        />
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-danger text-center">{{ d.title }}{{ d.name }}</h5>
+          <p class="m-2  align-top">Vote Average:&nbsp;<i class="bi bi-star-fill" style="color:yellow"></i>&nbsp;{{d.vote_average}}</p>
+          <div class="card-text m-1">
+            <p class="overview p-1">{{d.overview}}</p>
+          </div>
+          <button href=""></button>
+        </div>
       </div>
-  <div class="col-8">
-    <div class="p-5 text-content">
-      <h2 style="color: red">{{ d.title }}</h2>
-      <p><strong>Summary:</strong><br /></p>
-      <p [innerHTML]="d.overview"></p>
-      <!-- <p *ngIf="d.show.genres.length !== 0 ">Genre: {{ d.genres_ids }}</p> -->
-      <!-- <p *ngIf="d.show.rating.average" ><mat-icon style="color: yellow">star_rate</mat-icon>Rating: {{d.show.rating.average}} / 10</p> -->
     </div>
   </div>
-</ng-container>
-</div>
 </div>
 
-
-<!-- <div *ngFor="let t of tvDataResult"> -->
-
-<!-- </div> -->
-<!-- <ng-container *ngFor="let t of tvDataResult"  >
-        {{t.title}}
-        {{t.description}} -->
-<!-- {{tvDataResult.genre}} -->
-
-<!-- <img src="tvDataResult.image" > -->
-<!-- </ng-container> -->
+<!-- <div class="container">
+    <div class="row rowStyle m-5" *ngFor="let d of MovieDataResult">
+      <ng-container *ngIf="d.id !== ''">
+        <div class="col-4 imageDiv">
+          <img
+            class="image"
+            src="https://image.tmdb.org/t/p/original/{{ d.poster_path }}"
+            alt=""
+          />
+        </div>
+        <div class="col-8">
+          <div class="p-5 text-content">
+            <h2 style="color: red">{{ d.title }}</h2>
+            <p><strong>Summary:</strong><br /></p>
+            <p [innerHTML]="d.overview"></p>
+          
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div> -->

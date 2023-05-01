@@ -3,12 +3,17 @@
     color: white;
 }
 
+
+.container {
+    display: flex;
+    flex-wrap: wrap
+}
 .rowStyle {
     background-color: rgba(157, 123, 123, 0.3);
     border-radius: 15px;
- 
-
+    
 }
+
 
 
 
@@ -28,7 +33,7 @@
 }
 
 .text-content {
-     width: auto;
+     width: 100%;
      border-radius: 20px;
 }
 

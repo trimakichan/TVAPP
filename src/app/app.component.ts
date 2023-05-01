@@ -11,17 +11,17 @@ export class AppComponent {
   title = 'TV-Search';
   navbg: any;
   
-  searchResult: any = []
+  // searchResult: any = []
 
 
 
-  constructor(private TvshowService: TvshowService) {}
+  // constructor(private TvshowService: TvshowService) {}
 
-  doSearch(searchValue: string) {
-    this.TvshowService.getMovieData(searchValue).subscribe(data => {
-     console.log(data) 
-      this.searchResult = data})
-  }
+  // doSearch(searchValue: string) {
+  //   this.TvshowService.getMovieData(searchValue).subscribe(data => {
+  //    console.log(data) 
+  //     this.searchResult = data})
+  // }
 
     // The background of navbar turns black if you start scrolling down so you can see the navbar more easily. 
     @HostListener('document:scroll') scrollover() {

@@ -1,1 +1,51 @@
-<p>movie-details works!</p>
+<!-- <div class="container-fluid imgDiv">
+  <div class="">
+    <img
+      src="https://image.tmdb.org/t/p/original/{{
+        getMovieDetails.backdrop_path
+      }} "
+      class="backdrop-image"
+    />
+  </div>
+  <div class="row backdrop-text">
+    <div class="col col-sm-12 img-container">
+      <img
+        src="https://image.tmdb.org/t/p/original/{{
+          getMovieDetails.poster_path
+        }}"
+        class="posterImg"
+      />
+      <h3>{{ getMovieDetails.title }}</h3>
+    </div>
+    <!-- <div class="col col-sm-12 m-5">
+        <h3>{{ getMovieDetails.title }}</h3>
+      </div> -->
+<!-- </div>
+</div> -->
+-->
+
+<div class="container-fluid container">
+  <img
+    src="https://image.tmdb.org/t/p/original/{{
+      getMovieDetails.backdrop_path}} "
+    class="backdrop-image"
+  />
+  <div class="row content-box mt-5">
+    <div class="col col-lg-4 p-5 mt-5" imgBox>
+      <img
+        src="https://image.tmdb.org/t/p/original/{{
+          getMovieDetails.poster_path
+        }}"
+        class="posterImg"
+      />
+    </div>
+    <div class="col col-lg-5 pt-5 mt-5 text-white textBox">
+      <h3 class="mb-3">{{ getMovieDetails.title }}</h3>
+      <h5 class="mb-3">{{getMovieDetails.tagline}}</h5>
+       <p class= "">{{ getMovieDetails.overview }}</p>
+       {{getMovieDetails.homepage}}
+       <a [href]="getMovieDetails.homepage" class="btn btn-danger p-1" target="_blank">
+        Watch Trailer</a>
+    </div>
+  </div>
+</div>

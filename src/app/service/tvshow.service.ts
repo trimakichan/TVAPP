@@ -21,7 +21,7 @@ export class TvshowService {
 
   getMovieData(input: string | number):Observable<any> {
     console.log('ID in Service:',input);
-    return this.HttpClient.get(`https://api.tvmaze.com/search/shows?q=${input}`)    
+    return this.HttpClient.get(`${this.baseurl}/search/movie?api_key=${environment.appId}&query=${input}`)    
       // this.transformtoICurrentTV(data)
 
   }
@@ -40,6 +40,10 @@ export class TvshowService {
     return this.HttpClient.get(`${this.baseurl}/tv/top_rated?api_key=${environment.appId}&language=en-US&page=1`);
   
   }
+
+  getMovieApiData(id: any):Observable<any> {
+    return this.HttpClient.get(`${this.baseurl}/movie/${id}?api_key=${environment.appId}`)
+  } 
   
      }
 

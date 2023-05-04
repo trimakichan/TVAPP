@@ -35,7 +35,8 @@
 } */
 
 .trendingImg:hover,
-.movie-image:hover {
+.movie-image:hover
+ {
   transform: scale(1.06);
   cursor: pointer;
 }
@@ -110,7 +111,7 @@
  object-fit: contain;  
  cursor: pointer;
  transition: transform 450ms;
-}
+} 
 
 .backdrop-content {
     display: flex;

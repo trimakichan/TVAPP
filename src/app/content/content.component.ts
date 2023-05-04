@@ -18,15 +18,16 @@ constructor(private TvshowService: TvshowService) {}
   @Input() tvDataResult: any;
 
   searchResult: any = []
-  MovieDataResult: any = []
+  movieDataResult: any = []
+  
 
 
   doSearch(searchValue: string) {
     console.log(searchValue)
     this.TvshowService.getMovieData(searchValue).subscribe(result => {
     console.log(result)
-    this.MovieDataResult = result.results})
-    console.log("MovieDataResult:", this.MovieDataResult)
+    this.movieDataResult = result.results})
+    console.log("MovieDataResult:", this.movieDataResult)
 
 }
 

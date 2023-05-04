@@ -1,46 +1,16 @@
-<!-- <div class="container-fluid imgDiv">
-  <div class="">
-    <img
-      src="https://image.tmdb.org/t/p/original/{{
-        getMovieDetails.backdrop_path
-      }} "
-      class="backdrop-image"
-    />
-  </div>
-  <div class="row backdrop-text">
-    <div class="col col-sm-12 img-container">
-      <img
-        src="https://image.tmdb.org/t/p/original/{{
-          getMovieDetails.poster_path
-        }}"
-        class="posterImg"
-      />
-      <h3>{{ getMovieDetails.title }}</h3>
-    </div>
-   <div class="col col-sm-12 m-5">
-        <h3>{{ getMovieDetails.title }}</h3>
-      </div> -->
-<!-- </div>
-</div> -->
 
-<div class="container-fluid container mx-auto">
-  <!-- <img
-    src="https://image.tmdb.org/t/p/original/{{
-      getMovieDetails.backdrop_path
-    }} "
-    class="backdrop-image"
-  /> -->
+<div class="contain-fluid backdrop" [ngStyle]="{background:
+  'url(https://image.tmdb.org/t/p/original/' + getMovieDetails.backdrop_path +')'}" >
 
-  <div class="row mt-5">
-    <div class="col col-lg-5 p-5 mt-5" imgBox>
+  <div class="mx-auto">
+  <div class="row contentBox">
+    <div class="col col-lg-4 col-md-3 col-sm-12 d-flex align-items-center justify-content-center">
       <img
-        src="https://image.tmdb.org/t/p/original/{{
-          getMovieDetails.poster_path
-        }}"
+        src="https://image.tmdb.org/t/p/original/{{getMovieDetails.poster_path}}"
         class="posterImg"
       />
     </div>
-    <div class="col col-lg-7 pt-5 text-white textBox">
+    <div class="col col-lg-8 col-md-9 col-sm-12 p-5 text-white textBox">
       <div class="button">
         <button type="button" class="btn btn-outline-danger p-2" routerLink="">
           Go Back
@@ -71,16 +41,19 @@
 
       <p class="mt-4 mb-5">{{ getMovieDetails.overview }}</p>
 
+     
       <youtube-player
         *ngIf="trailerID"
         videoId="{{ trailerID }}"
         suggestedQuality="highres"
-        [height]="400"
-        [width]="600"
+        class="youtube"
         [startSeconds]="4"
         [endSeconds]="8"
       >
       </youtube-player>
+  
     </div>
   </div>
+</div>
+
 </div>

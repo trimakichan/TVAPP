@@ -41,7 +41,7 @@
 
       <p class="mt-4 mb-5">{{ getMovieDetails.overview }}</p>
 
-     
+     <div class="d-none d-lg-block">
       <youtube-player
         *ngIf="trailerID"
         videoId="{{ trailerID }}"
@@ -51,7 +51,13 @@
         [endSeconds]="8"
       >
       </youtube-player>
+    </div>
   
+    <!-- <div class="d-lg-none"> -->
+      <a href="https://www.youtube.com/watch?v={{trailerID}}" target="_blank" class="btn btn-danger p-1 d-lg-none">
+       Watch Trailer 
+      </a>
+    <!-- </div> -->
     </div>
   </div>
 </div>

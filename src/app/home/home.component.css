@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .homeBox {
@@ -10,11 +11,6 @@
 .titleText {
   font-weight: bold;
   font-size: 1.3rem;
-}
-
-/* move the images with <- -> key  */
-.todayShowContainer::-webkit-scrollbar {
-  display: none;
 }
 
 .trendingImg:hover,

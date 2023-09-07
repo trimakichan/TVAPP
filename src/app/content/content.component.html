@@ -3,38 +3,41 @@
   <app-search (searchEvent)="doSearch($event)" />
 </div>
 
-<div class="container-fluid mt-5">
-  <div class="row">
+<!-- For layout, used flexbox for practice -->
+<div class="boxForCard">
     <div
-      class="col mb-4 m-2"
       *ngFor="let d of movieDataResult"
     >
-      <div class="card cardSize mx-auto" >
+      <div class="card cardSize mx-auto" 
+      [routerLink]="['/'+ d.media_type, d.id]"
+      >
         <img
-          src="https://image.tmdb.org/t/p/original/{{ d.poster_path }}"
+          src="https://image.tmdb.org/t/p/original/{{ d.backdrop_path }}"
           alt="{{d.title}}"
           class="card-img-top"
-          style="height: 50%;"
-          *ngIf="d.poster_path"
+          style="height: 50%;" 
           
+     
         />
         <div class="card-body bg-dark">
           <h5 class="card-title text-danger text-center">{{ d.title }}{{ d.name }}</h5>
           <p class="m-2  align-top">Vote Average:&nbsp;<i class="bi bi-star-fill" style="color:yellow"></i>&nbsp;{{d.vote_average}}</p>
           <div class="card-text m-1">
             <p class="overview p-1">{{d.overview}}</p>
+            <!-- <input type="checkbox" class="expand-btn"> -->
           </div>
           <button href=""></button>
         </div>
       </div>
+ 
     </div>
-  </div>
+  
 </div>
 
 <!-- <div class="container">
     <div class="row rowStyle m-5" *ngFor="let d of MovieDataResult">
       <ng-container *ngIf="d.id !== ''">
-        <div class="col-4 imageDiv">
+        <div class="col-4 imageDiv"> 
           <img
             class="image"
             src="https://image.tmdb.org/t/p/original/{{ d.poster_path }}"

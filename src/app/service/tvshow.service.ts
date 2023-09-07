@@ -40,6 +40,8 @@ export class TvshowService {
   
   }
 
+  
+
   getMovieApiData(id: any):Observable<any> {
     return this.HttpClient.get(`${this.baseurl}/movie/${id}?api_key=${environment.appId}&append_to_response=videos`)
   } 

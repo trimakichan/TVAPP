@@ -4,7 +4,7 @@
 
   <div class="mx-auto">
   <div class="row contentBox">
-    <div class="col col-lg-4 col-md-3 col-sm-12 d-flex align-items-center justify-content-center">
+    <div class="col col-lg-4 col-md-3 col-sm-12 d-flex align-items-center justify-content-center ">
       <img
         src="https://image.tmdb.org/t/p/original/{{getMovieDetails.poster_path}}"
         class="posterImg"
@@ -12,7 +12,7 @@
     </div>
     <div class="col col-lg-8 col-md-9 col-sm-12 p-5 text-white textBox">
       <div class="button">
-        <button type="button" class="btn btn-outline-danger p-2" routerLink="">
+        <button (click) ="goBack()" class="btn btn-outline-danger p-2" >
           Go Back
         </button>
       </div>

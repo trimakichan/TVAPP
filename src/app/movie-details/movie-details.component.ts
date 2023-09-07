@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import {Location} from "@angular/common"
 import { TvshowService } from '../service/tvshow.service';
-import { NgClass } from '@angular/common';
-import { string } from 'prop-types';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,19 +14,24 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     private TvshowService: TvshowService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   getMovieDetails: any;
   href: string = '';
   trailerID: any;
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     let getParamId = this.route.snapshot.paramMap.get('id');
     console.log('getParamID:', getParamId);
     this.href = this.router.url;
     this.getMovieApiData(getParamId);
   }
+
+goBack() {
+  this.location.back()
+}
 
   getMovieApiData(id: any) {
     if (this.href.includes('movie')) {
@@ -40,11 +44,6 @@ export class MovieDetailsComponent implements OnInit {
             v.name.includes('Official Trailer')).key;
         console.log('trailer:', this.trailerID);
       });
-
-      // this.TvshowService.getTrailerApitData(id).subscribe((result) => {
-      //   console.log('getTrailerData:', result);
-      //   this.trailer = result;
-      // });
     } else {
       this.TvshowService.getTvApiData(id).subscribe((result) => {
         console.log('getTvdetails:', result);
@@ -57,11 +56,6 @@ export class MovieDetailsComponent implements OnInit {
       });
     }
   }
-
-  // getTrailerApiData(id: any) {
-  //   this.TvshowService.getTrailerApitData(id).subscribe((result) => {
-  //     console.log('getTrailerData:', result);
-  //     this.trailer = result;
-  //   });
-  // }
 }
+
+

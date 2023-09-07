@@ -1,10 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TvshowService } from '../service/tvshow.service';
 
-
-
-
-
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -20,15 +16,14 @@ constructor(private TvshowService: TvshowService) {}
   searchResult: any = []
   movieDataResult: any = []
   
-
-
   doSearch(searchValue: string) {
     console.log(searchValue)
     this.TvshowService.getMovieData(searchValue).subscribe(result => {
-    console.log(result)
-    this.movieDataResult = result.results})
-    console.log("MovieDataResult:", this.movieDataResult)
+    console.log("search result:", result)
+    this.movieDataResult = result.results.filter((d:any) => d.backdrop_path !== null)
+    console.log("Filtered Data", this.movieDataResult)
 
+  })
 }
 
 }
